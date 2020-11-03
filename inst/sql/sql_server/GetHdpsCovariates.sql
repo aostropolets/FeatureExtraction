@@ -700,7 +700,7 @@ WHERE de1.drug_concept_id != 0
 	AND ingredient.vocabulary_id = 8
 	AND ingredient.concept_class = 'Ingredient'
 } : {
-	AND ingredient.vocabulary_id = 'RxNorm'
+	AND ingredient.vocabulary_id in ('RxNorm', 'CVX')
 	AND ingredient.concept_class_id = 'Ingredient'
 }
 GROUP BY cp1.@row_id_field,
