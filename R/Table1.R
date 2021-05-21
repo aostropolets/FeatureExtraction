@@ -1,4 +1,4 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2021 Observational Health Data Sciences and Informatics
 #
 # This file is part of FeatureExtraction
 #
@@ -27,7 +27,7 @@
 getDefaultTable1Specifications <- function() {
   fileName <- system.file("csv", "Table1Specs.csv", package = "FeatureExtraction")
   colTypes <- list(label = readr::col_character(), analysisId = readr::col_integer(), covariateIds = readr::col_character())
-  specifications <- readr::read_csv(fileName, col_types = colTypes, guess_max = )
+  specifications <- readr::read_csv(fileName, col_types = colTypes)
   return(specifications)
 }
 

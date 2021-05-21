@@ -1,4 +1,4 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2021 Observational Health Data Sciences and Informatics
 #
 # This file is part of FeatureExtraction
 #
@@ -34,6 +34,8 @@
 #' @aliases CovariateData
 #' @export
 #' @import Andromeda
+#' @importClassesFrom RSQLite SQLiteConnection
+#' @importClassesFrom DBI DBIObject DBIConnection
 setClass("CovariateData", contains = "Andromeda")
 
 
@@ -105,7 +107,9 @@ setMethod("show", "CovariateData", function(object) {
   cli::cat_line(pillar::style_subtle("# CovariateData object"))
   cli::cat_line("")
   cohortId <- attr(object, "metaData")$cohortId
-  if (cohortId == -1) {
+  if (length(cohortId) > 1) {
+    cli::cat_line(paste("Cohorts of interest IDs:", paste(cohortId, collapse = ", ")))
+  } else if (cohortId == -1) {
     cli::cat_line("All cohorts")
   } else {
     cli::cat_line(paste("Cohort of interest ID:", cohortId))

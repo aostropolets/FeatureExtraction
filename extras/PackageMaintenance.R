@@ -1,6 +1,6 @@
 # @file PackageMaintenance
 #
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2021 Observational Health Data Sciences and Informatics
 #
 # This file is part of FeatureExtraction
 # 
@@ -23,7 +23,6 @@ folder <- system.file(package = "FeatureExtraction")
 folder
 unlink(folder, recursive = TRUE, force = TRUE)
 file.exists(folder)
-devtools::install(upgrade = "never")
 
 # Format and check code
 OhdsiRTools::formatRFolder("./R")
